@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fitzgerald Knowledge Library — a free public library of research, facts, practical guides, and discoveries.">
+<meta name="robots" content="index, follow">
+<title>Fitzgerald Knowledge Library</title>
+<style>
+:root {
+  --navy: #14283e;
+  --gold: #c5a66b;
+  --paper: #f7f6f2;
+  --ink: #263443;
+  --muted: #6d7883;
+  --white: #fff;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+header {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 42px 20px 30px;
+  border-bottom: 4px solid var(--gold);
+}
+.brand-mark {
+  color: var(--gold);
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+header h1 {
+  margin: 0;
+  font-size: clamp(27px, 5vw, 43px);
+  letter-spacing: 3px;
+}
+header p {
+  color: #d9e0e7;
+  letter-spacing: 3px;
+  font: 12px Arial, sans-serif;
+  margin: 12px 0 0;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding: 15px;
+  background: white;
+  border-bottom: 1px solid #e5e1d8;
+}
+nav a {
+  color: var(--navy);
+  text-decoration: none;
+  font: 13px Arial, sans-serif;
+  font-weight: bold;
+}
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 38px 22px 65px;
+}
+.intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 30px;
+}
+.intro h2 {
+  color: var(--navy);
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+.intro p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+.search-area {
+  max-width: 700px;
+  margin: 25px auto 40px;
+}
+.search-box {
+  display: flex;
+  background: white;
+  border: 1px solid #d8d5cd;
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px #14283e0b;
+}
+.search-box input {
+  flex: 1;
+  min-width: 0;
+  padding: 17px;
+  border: 0;
+  outline: none;
+  font-size: 16px;
+}
+.search-box button {
+  border: 0;
+  background: var(--navy);
+  color: white;
+  padding: 0 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.section-title {
+  color: var(--navy);
+  border-bottom: 1px solid #d8d2c5;
+  padding-bottom: 12px;
+  margin: 38px 0 20px;
+  font-size: 23px;
+}
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 13px;
+}
+.category {
+  border: 1px solid #e1ddd4;
+  background: white;
+  padding: 20px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  color: var(--navy);
+  font: bold 14px Arial, sans-serif;
+  transition: .2s;
+}
+.category:hover, .category.active {
+  background: var(--navy);
+  color: white;
+  border-color: var(--navy);
+}
+.category span {
+  display: block;
+  font-size: 25px;
+  margin-bottom: 9px;
+}
+.results-info {
+  color: var(--muted);
+  font: 13px Arial, sans-serif;
+  margin: 15px 0;
+}
+.articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+.article {
+  background: white;
+  border: 1px solid #e5e1d8;
+  border-radius: 6px;
+  padding: 22px;
+}
+.article .tag {
+  color: #99783e;
+  font: bold 11px Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.article h3 {
+  color: var(--navy);
+  font-size: 21px;
+  line-height: 1.3;
+  margin: 12px 0;
+}
+.article p {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 15px;
+}
+.article a {
+  color: #8a6a32;
+  font: bold 13px Arial, sans-serif;
+  text-decoration: none;
+}
+.article a:hover { text-decoration: underline; }
+.no-results {
+  display: none;
+  text-align: center;
+  color: var(--muted);
+  padding: 35px;
+  background: white;
+  border-radius: 6px;
+}
+footer {
+  background: var(--navy);
+  color: #d9e0e7;
+  text-align: center;
+  padding: 30px 20px;
+  font: 13px Arial, sans-serif;
+  line-height: 1.8;
+}
+footer strong { color: var(--gold); }
+@media(max-width:500px) {
+  nav { gap: 16px; }
+  .search-box button { padding: 0 14px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand-mark">✦</div>
+  <h1>FITZGERALD</h1>
+  <p>KNOWLEDGE LIBRARY</p>
+</header>
+
+<nav>
+  <a href="#home">HOME</a>
+  <a href="#categories">CATEGORIES</a>
+  <a href="#articles">RESEARCH</a>
+  <a href="#about">ABOUT</a>
+</nav>
+
+<main id="home">
+
+  <section class="intro">
+    <h2>Knowledge Worth Sharing.</h2>
+    <p>
+      Welcome to the Fitzgerald Knowledge Library.
+      An independent, growing collection of research,
+      documented facts, practical guides, and discoveries.
+      Free knowledge, available to everyone.
+    </p>
+  </section>
+
+  <section class="search-area">
+    <div class="search-box">
+      <input id="search" type="search"
+        placeholder="Search the knowledge library..."
+        aria-label="Search articles">
+      <button onclick="searchArticles()">Search</button>
+    </div>
+    <div class="results-info" id="results-info">
+      Explore our growing collection.
+    </div>
+  </section>
+
+  <section id="categories">
+    <h2 class="section-title">Explore Categories</h2>
+    <div class="categories">
+      <button class="category active" data-category="all">
+        <span>📚</span>All Research
+      </button>
+      <button class="category" data-category="Science">
+        <span>🔬</span>Science
+      </button>
+      <button class="category" data-category="Technology">
+        <span>💻</span>Technology
+      </button>
+      <button class="category" data-category="Automotive">
+        <span>🚘</span>Automotive
+      </button>
+      <button class="category" data-category="History">
+        <span>🏛️</span>History
+      </button>
+      <button class="category" data-category="Health">
+        <span>🌿</span>Health
+      </button>
+      <button class="category" data-category="Education">
+        <span>📖</span>Education
+      </button>
+      <button class="category" data-category="Practical Guides">
+        <span>🔧</span>Practical Guides
+      </button>
+      <button class="category" data-category="General Knowledge">
+        <span>🌎</span>General Knowledge
+      </button>
+    </div>
+  </section>
+
+  <section id="articles">
+    <h2 class="section-title">Research Library</h2>
+
+    <div class="articles" id="article-list">
+
+      <article class="article" data-category="Science">
+        <div class="tag">Science</div>
+        <h3>How Does the Scientific Method Work?</h3>
+        <p>
+          An introduction to observation, hypotheses,
+          experimentation, evidence, and scientific conclusions.
+        </p>
+        <a href="https://science.nasa.gov/"
+           target="_blank" rel="noopener">Explore NASA Science →</a>
+      </article>
+
+      <article class="article" data-category="Technology">
+        <div class="tag">Technology</div>
+        <h3>How Does the Internet Work?</h3>
+        <p>
+          Learn about networks, data packets, servers,
+          internet protocols, and how information travels.
+        </p>
+        <a href="https://www.cloudflare.com/learning/network-layer/what-is-the-internet/"
+           target="_blank" rel="noopener">Read the technical guide →</a>
+      </article>
+
+      <article class="article" data-category="Automotive">
+        <div class="tag">Automotive</div>
+        <h3>Understanding the Internal Combustion Engine</h3>
+        <p>
+          Explore the basic four-stroke engine cycle:
+          intake, compression, power, and exhaust.
+        </p>
+        <a href="https://www.energy.gov/"
+           target="_blank" rel="noopener">Explore the Department of Energy →</a>
+      </article>
+
+      <article class="article" data-category="History">
+        <div class="tag">History</div>
+        <h3>Preserving Historical Knowledge</h3>
+        <p>
+          Discover how archives, historical documents,
+          museums, and primary sources help preserve the past.
+        </p>
+        <a href="https://www.archives.gov/"
+           target="_blank" rel="noopener">Explore the National Archives →</a>
+      </article>
+
+      <article class="article" data-category="Health">
+        <div class="tag">Health</div>
+        <h3>Understanding Evidence-Based Health Information</h3>
+        <p>
+          Learn why reliable health information should be
+          supported by research and trustworthy medical sources.
+        </p>
+        <a href="https://medlineplus.gov/"
+           target="_blank" rel="noopener">Explore MedlinePlus →</a>
+      </article>
+
+      <article class="article" data-category="Education">
+        <div class="tag">Education</div>
+        <h3>How Learning and Memory Work</h3>
+        <p>
+          Explore educational research about learning,
+          memory, practice, and the development of knowledge.
+        </p>
+        <a href="https://ies.ed.gov/"
+           target="_blank" rel="noopener">Explore Education Research →</a>
+      </article>
+
+      <article class="article" data-category="Practical Guides">
+        <div class="tag">Practical Guides</div>
+        <h3>How to Evaluate a Research Source</h3>
+        <p>
+          Learn to examine authorship, evidence, publication
+          dates, references, and potential conflicts of interest.
+        </p>
+        <a href="https://www.loc.gov/"
+           target="_blank" rel="noopener">Explore the Library of Congress →</a>
+      </article>
+
+      <article class="article" data-category="General Knowledge">
+        <div class="tag">General Knowledge</div>
+        <h3>The Importance of Reliable Information</h3>
+        <p>
+          Understand the difference between established facts,
+          interpretations, opinions, and unverified claims.
+        </p>
+        <a href="https://www.britannica.com/"
+           target="_blank" rel="noopener">Explore Britannica →</a>
+      </article>
+
+    </div>
+
+    <div class="no-results" id="no-results">
+      No matching articles found. Try another search.
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">About the Library</h2>
+    <p style="line-height:1.8;color:#6d7883">
+      The Fitzgerald Knowledge Library is an independent
+      public knowledge project dedicated to collecting,
+      organizing, and sharing useful information.
+      Our goal is to make research easier to find,
+      understand, and verify.
+    </p>
+    <p style="line-height:1.8;color:#6d7883">
+      We believe knowledge should be accessible to everyone.
+      Articles should identify their sources and distinguish
+      documented facts from opinions and uncertainty.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <strong>FITZGERALD KNOWLEDGE LIBRARY</strong><br>
+  Knowledge Worth Sharing.<br>
+  Independent research. Public knowledge. Free access.<br>
+  © 2026 Fitzgerald Knowledge Library
+</footer>
+
+<script>
+const searchInput = document.getElementById("search");
+const articles = [...document.querySelectorAll(".article")];
+const categoryButtons = [...document.querySelectorAll(".category")];
+let activeCategory = "all";
+
+function searchArticles() {
+  const query = searchInput.value.toLowerCase().trim();
+  let count = 0;
+
+  articles.forEach(article => {
+    const matchesText = article.innerText.toLowerCase().includes(query);
+    const matchesCategory =
+      activeCategory === "all" ||
+      article.dataset.category === activeCategory;
+
+    const visible = matchesText && matchesCategory;
+    article.style.display = visible ? "" : "none";
+    if (visible) count++;
+  });
+
+  document.getElementById("no-results").style.display =
+    count ? "none" : "block";
+
+  document.getElementById("results-info").textContent =
+    count + (count === 1 ? " article found." : " articles found.");
+}
+
+searchInput.addEventListener("input", searchArticles);
+
+categoryButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    activeCategory = button.dataset.category;
+
+    categoryButtons.forEach(item =>
+      item.classList.toggle("active", item === button)
+    );
+
+    searchArticles();
+    document.getElementById("articles").scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+});
+</script>
+
+</body>
+</html>
