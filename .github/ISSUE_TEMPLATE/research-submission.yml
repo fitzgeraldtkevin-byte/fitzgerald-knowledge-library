@@ -1,0 +1,77 @@
+
+name: Submit Research
+description: Propose research, an article, or a correction for the library.
+title: "[Research Submission]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing to the Fitzgerald Knowledge Library.
+        All submissions are reviewed before publication.
+
+  - type: input
+    id: article_title
+    attributes:
+      label: Proposed article title
+      placeholder: Enter a descriptive title
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Research category
+      options:
+        - Science
+        - Technology
+        - Automotive
+        - History
+        - Health
+        - Education
+        - Practical Guides
+        - General Knowledge
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What is this research about?
+      description: Explain the subject and why it is useful.
+    validations:
+      required: true
+
+  - type: textarea
+    id: findings
+    attributes:
+      label: Research and findings
+      description: Include the information, evidence, and relevant details.
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources and references
+      description: Provide URLs, publications, books, or original documents.
+    validations:
+      required: true
+
+  - type: input
+    id: contributor
+    attributes:
+      label: Contributor name
+      placeholder: Name or preferred public attribution
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Submission confirmation
+      options:
+        - label: I have provided sources to support my submission.
+          required: true
+        - label: I understand that submission does not guarantee publication.
+          required: true
